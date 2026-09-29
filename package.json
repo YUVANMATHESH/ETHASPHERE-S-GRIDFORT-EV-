@@ -1,0 +1,11 @@
+{
+  "name": "evgrid-portal",
+  "version": "2.0.0",
+  "private": true,
+  "description": "EVGRID full-stack EV Station Management Portal with Neon PostgreSQL",
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "start": "node backend/src/server.js",
+    "dev": "npm --prefix backend run dev"
+  }
+}

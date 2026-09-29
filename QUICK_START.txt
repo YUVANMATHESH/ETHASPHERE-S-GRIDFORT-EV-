@@ -1,0 +1,27 @@
+EVGRID PORTAL - NEON POSTGRESQL QUICK START
+===========================================
+
+1) Extract this project.
+2) Open PowerShell in the EVGRID-Portal folder.
+3) Copy backend\.env.example to backend\.env.
+4) Open Neon Console -> your project -> Connection Details and copy the PostgreSQL connection string into DATABASE_URL.
+5) Set your own long random JWT_SECRET. Do not share it.
+6) In Neon SQL Editor, run database\schema.sql, then database\seed.sql.
+7) Run: npm --prefix backend install
+8) Run: npm run dev
+9) Open: http://localhost:5000
+
+Health:
+http://localhost:5000/api/health
+
+Database test:
+http://localhost:5000/api/test/database
+
+Register a user from the website. Then log in.
+To make yourself an admin, run in Neon SQL Editor:
+UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
+
+Important:
+- This version uses Neon PostgreSQL, not Supabase.
+- Do not put DATABASE_URL or JWT_SECRET in frontend files.
+- The frontend is served by Express, so Live Server is not required.

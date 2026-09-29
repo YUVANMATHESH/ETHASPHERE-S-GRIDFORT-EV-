@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title> GRIDFORT EV</title><link rel="stylesheet" href="/css/style.css"></head><body>
+<div class="app">
+<aside class="sidebar"><div class="side-brand"><div class="brand">GRIDFORT<span>EV</span></div></div>
+<nav class="nav"><a class="active" href="/dashboard.html">◉ Dashboard</a><a href="#stations">⚡ Stations</a><a href="#vehicle">🚗 Vehicle</a><a href="#charging">◒ Charging</a><a href="#alerts">🚨 Alerts</a><a href="#ai">✦ AI Insights</a></nav>
+<div class="side-bottom"><button class="btn btn-danger" style="width:100%" onclick="logout()">Logout</button></div></aside>
+<main class="main"><div class="topbar"><div><h1>Command Center</h1><p>Monitor your EV charging journey.</p></div><div class="userbox"><div id="avatar" class="avatar">U</div><span id="userName">User</span></div></div>
+<section class="grid4">
+<div class="stat-card card"><div class="stat-label">Stations</div><div id="stationCount" class="stat-value">—</div><div class="stat-meta">Network visible</div></div>
+<div class="stat-card card"><div class="stat-label">Available Chargers</div><div id="availableChargers" class="stat-value">—</div><div class="stat-meta">Ready now</div></div>
+<div class="stat-card card"><div class="stat-label">Active Sessions</div><div id="activeSessions" class="stat-value">—</div><div class="stat-meta">Live</div></div>
+<div class="stat-card card"><div class="stat-label">Energy Consumed</div><div id="energyConsumed" class="stat-value">—</div><div class="stat-meta">Total kWh</div></div>
+</section>
+<section id="charging" class="section grid2">
+<div class="live card"><div class="live-head"><div><div class="live-title">Live Charging Monitor</div><div id="sessionMeta" class="live-sub">No active session</div></div><span id="liveBadge" class="badge badge-yellow">IDLE</span></div>
+<div class="meter"><div class="meter-top"><span>Battery</span><strong id="battery">—</strong></div><div class="progress"><span id="batteryBar" style="width:0%"></span></div></div>
+<div class="metrics"><div class="metric"><small>Voltage</small><strong id="voltage">—</strong></div><div class="metric"><small>Current</small><strong id="current">—</strong></div><div class="metric"><small>Power</small><strong id="power">—</strong></div></div>
+<div class="toolbar" style="margin-top:18px"><button id="startDemo" class="btn btn-primary">Start Demo Charging</button><button id="stopDemo" class="btn btn-danger hidden">Stop Charging</button></div></div>
+<div id="ai" class="ai-box card"><div class="badge badge-cyan">AI INSIGHT</div><h2 style="margin-top:12px">Charging Health</h2><div id="aiScore" class="ai-score">—</div><p id="aiText">Start a demo session to generate telemetry and AI analysis.</p></div>
+</section>
+<section id="stations" class="section"><div class="section-head"><h2>Available Stations</h2><span class="muted" id="stationHint"></span></div><div id="stationsGrid" class="grid3"></div></section>
+<section id="vehicle" class="section"><div class="section-head"><h2>My Vehicles</h2><button id="addVehicleBtn" class="btn btn-primary">+ Add Vehicle</button></div><div id="vehiclesGrid" class="grid3"></div></section>
+<section id="alerts" class="section"><div class="section-head"><h2>Recent Alerts</h2></div><div id="alertsList" class="alerts card" style="padding:12px"></div></section>
+</main></div>
+<div id="vehicleModal" class="modal"><div class="modal-card card"><div class="section-head"><h2>Add Vehicle</h2><button class="btn btn-ghost" onclick="closeVehicleModal()">✕</button></div><form id="vehicleForm" class="form">
+<div class="field"><label>Registration Number</label><input id="vehicleReg" required placeholder="TN37AB1234"></div>
+<div class="field"><label>Vehicle Model</label><input id="vehicleModel" required placeholder="Tata Nexon EV"></div>
+<div class="field"><label>Battery Capacity (kWh)</label><input id="vehicleBattery" type="number" step="0.1" min="1" placeholder="40.5"></div>
+<button class="btn btn-primary" type="submit">Save Vehicle</button><div id="vehicleMessage" class="form-msg"></div></form></div></div>
+<script src="/js/api.js"></script><script src="/js/dashboard.js"></script></body></html>

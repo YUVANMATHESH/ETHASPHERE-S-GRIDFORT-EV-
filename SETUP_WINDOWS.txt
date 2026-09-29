@@ -1,0 +1,12 @@
+
+5. Double-click start.bat, or from a terminal run:
+   cd backend
+   npm install
+   npm run dev
+6. Open http://localhost:5000
+7. Register a user and add a vehicle.
+8. Click Start Demo Charging to generate simulated EV data.
+9. To make the user an admin, run in Supabase SQL Editor:
+   UPDATE users SET role='admin' WHERE email='YOUR_EMAIL@example.com';
+   Then log out and log in again.
+
